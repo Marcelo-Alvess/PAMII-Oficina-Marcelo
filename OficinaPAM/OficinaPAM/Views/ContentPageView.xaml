@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             
+             xmlns:cabecalho="clr-namespace:OficinaPAM.Views.ContentViews" Title="Content"
+             
+             x:Class="OficinaPAM.Views.ContentPageView">
+    <ContentPage.Content>
+        <ScrollView>            
+            <StackLayout Padding="20, 50, 10, 10" BackgroundColor="#FFFACD" HorizontalOptions="FillAndExpand" >
+
+                <cabecalho:CabecalhoView/>
+
+                <StackLayout Spacing="{StaticResource SpacingStackLayout}" Padding="0, 5, 0, 0" 
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Nome" FontSize="{StaticResource LabelFontSize}"/>
+                    <Entry FontSize="{StaticResource EntryFontSize}" />
+                    <Label Text="Telefone" FontSize="{StaticResource LabelFontSize}"/>
+                    <Entry Keyboard="Telephone" FontSize="{StaticResource EntryFontSize}"/>
+                    <Label Text="Endereço" FontSize="{StaticResource LabelFontSize}"/>
+                    <Editor FontSize="{StaticResource EntryFontSize}" 
+                            HeightRequest="{StaticResource HeightEditor}"/>
+
+                    <Label HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Informe os dados acima e clique no " />
+                                    <Span Text="botão" FontSize="{StaticResource ButtonFontSize}" 
+                                          FontAttributes="Bold" />
+                                    <Span Text=" abaixo" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Button Text="Confirmar dados" BackgroundColor="#96d1ff"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="OficinaPAM.Views.Atendimentos.FotoListagemView"
+             xmlns:conv="clr-namespace:OficinaPAM.Converters;assembly=OficinaPAM"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Add.png" Command="{Binding NovoCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout Padding="10, 0, 0, 0" HorizontalOptions="FillAndExpand">
+            <ListView x:Name="listView" HasUnevenRows="True"  
+                      ItemsSource="{Binding AtendimentoFotos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Observacoes}" FontSize="Medium" FontAttributes="Bold"/>
+                                <Image Source="{Binding ConteudoFoto, Converter={StaticResource ByteArrayToImage}}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
